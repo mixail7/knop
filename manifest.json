@@ -1,0 +1,44 @@
+{
+  "manifest_version": 2,
+  "name": "Knop",
+  "description": "Easy learning foreign languages",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Learn foreign languages easily"
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": [
+        "*://*/*"
+      ],
+      "all_frames": true,
+      "js": [
+        "knop.js"
+      ],
+      "css": [
+        "knop.css"
+      ]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "commands": {
+    "add_phrase_to_storage": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Add phrase to storage"
+    },
+    "delete_phrase_from_storage": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+D"
+      },
+      "description": "Add phrase to storage"
+    }
+  }
+}
